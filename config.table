@@ -1,0 +1,225 @@
+{
+  ["switch"]	= {
+      ["支持滑动页面"]	= false ;
+      ["横屏"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= true ;
+      } ;
+  ["fltBtn"]	= {
+      ["图标"]	= "" ;
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["显示"]	= false ;
+      } ;
+  ["toolbar"]	= {
+      ["启用搜索功能"]	= false ;
+      ["icon_btns"]	= {
+          [1]	= {
+              ["icon"]	= "refresh" ;
+              ["onClick"]	= "刷新网页()" ;
+              } ;
+          } ;
+      ["搜索URL"]	= "" ;
+      ["搜索框提示"]	= "" ;
+      ["输入栏模式"]	= false ;
+      ["menus"]	= {
+          [2]	= {
+              ["name"]	= "关于" ;
+              ["onClick"]	= "import \"android.content.Intent\"\
+\
+function 发送邮件()\
+i = Intent(Intent.ACTION_SEND)\
+i.setType(\"message/rfc822\")\
+i.putExtra(Intent.EXTRA_EMAIL, \"dnik@vip.qq.com\")\
+i.putExtra(Intent.EXTRA_SUBJECT,\"[问题反馈]韶院Lite\")\
+i.putExtra(Intent.EXTRA_TEXT,\"☆请注明应用版本、Android版本、问题描述☆\")\
+activity.startActivity(Intent.createChooser(i, \"选择邮件应用：\"))\
+end\
+\
+对话框()\
+.设置标题(\"关于\")\
+.设置消息(\" \\\
+韶院Lite Re-built Version \\\
+作者：DRStudio™ \\\
+反馈邮箱：dnik@vip.qq.com \\n\\\
+Deus ex machina \\n\\\
+☆本应用仅供交流和学习使用。 \\\
+\")\
+.设置积极按钮(\"确定\",function()\
+  显示消息(\"点击了确定\")\
+end)\
+.设置消极按钮(\"联系作者\", function()\
+  发送邮件()\
+end)\
+.显示()" ;
+              } ;
+          [1]	= {
+              ["name"]	= "更新日志" ;
+              ["onClick"]	= "对话框()\
+.设置标题(\"更新日志\")\
+.设置消息(\" \\\
+1. 更换签名。 \\\
+2. 修复部分机型卡死问题。 \\\
+3. 增加返回退出确定。 \\\
+4. 统一部分风格。 \\\
+5. 去除注销选项(原因见Bug) \\\
+6. 优化文字描述。\\n\\\
+已知Bug: \\n\\\
+1. 无法保存Cookie。 \\\
+2. 保存密码无效。 \\\
+3. 部分机型会停止运行。 \\\
+4. 无法手动注销账户。 \\\
+5. 第一次启动可能会卡死。 \\n\\\
+More：\\n\\\
+   本应用大多数代码由LUA编写(代码风格混乱)。 \\\
+   (因为作者Java过于Vegetable Exploded) \\n\\\
+   此版本因为作者摸了导致没有检查更新。 \\\
+   此版本估计是最后一版。 \\\
+   以后有时间会考虑重构(咕咕)。 \\\
+   下版本发布时间待定。 \\\
+   会考虑添加\\\"教务处\\\"相关功能。 \\\
+   有兴趣的Dalao可以邮箱联系要平台接口。 \\\
+   接口都是自己抓的官方接口。 \\\
+   唯一指定邮箱查看关于。 \\\
+   至于源码，作者自己看不下去删掉了。 \\n\\\
+   In the END： \\\
+   炎八天下第一！强！无敌！ \\n\\\
+   以上。 \\\
+           \")\
+.设置积极按钮(\"确定\",function()\
+  显示消息(\"点击确定\")\
+end)\
+.显示()" ;
+              } ;
+          } ;
+      } ;
+  ["colors"]	= {
+      ["顶栏"]	= "#ff2c2e43" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["进度条"]	= "#00000000" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      } ;
+  ["global_js"]	= "document.getElementsByClassName('ui-input-btn')[1].style.border='#2C2E66';\
+document.getElementsByClassName('ui-input-btn')[1].style.backgroundColor='#2C2E43';\
+\
+/*\
+document.getElementsByClassName('ui-btn')[1].style.borderColor='white';\
+*/" ;
+  ["sidebar"]	= {
+      ["启用"]	= true ;
+      ["items"]	= {
+          [1]	= {
+              ["icon"]	= "drawable/account_outline.png" ;
+              ["name"]	= "个人信息" ;
+              ["onClick"]	= "加载网页(\"http://card.sgu.edu.cn:8070/SynCard/Manage/BasicInfo\")\
+" ;
+              } ;
+          [2]	= {
+              ["icon"]	= "drawable/credit_card.png" ;
+              ["name"]	= "饭卡充值" ;
+              ["onClick"]	= "加载网页(\"http://card.sgu.edu.cn:8070/SynCard/Manage/Transfer?\")" ;
+              } ;
+          [3]	= {
+              ["icon"]	= "drawable/weather_rainy.png" ;
+              ["name"]	= "水费充值" ;
+              ["onClick"]	= "加载网页(\"http://card.sgu.edu.cn:8070/AutoPay/WaterFee/Index?\")" ;
+              } ;
+          [4]	= {
+              ["icon"]	= "drawable/weather_lightning.png" ;
+              ["name"]	= "电费充值" ;
+              ["onClick"]	= "加载网页(\"http://card.sgu.edu.cn:8070/AutoPay/PowerFee/Index?\")" ;
+              } ;
+          [5]	= {
+              ["icon"]	= "drawable/information_outline.png" ;
+              ["name"]	= "常见问题" ;
+              ["onClick"]	= "加载网页(\"http://card.sgu.edu.cn:8070/InfoPub/Notice/List/?sysCode=Dreams&typeCode=Faq\")" ;
+              } ;
+          [6]	= {
+              ["icon"]	= "drawable/share_variant.png" ;
+              ["name"]	= "分享" ;
+              ["onClick"]	= "弹出消息(\"闷声发大财\")\
+分享文本(\"分享一个好康的给你，韶院Lite，轻量化校园卡管理。下载链接：https://www.lanzous.com/b519440\")" ;
+              } ;
+          [7]	= {
+              ["icon"]	= "drawable/close_circle_outline.png" ;
+              ["name"]	= "退出" ;
+              ["onClick"]	= "退出程序()" ;
+              } ;
+          } ;
+      ["启用顶部图片"]	= true ;
+      } ;
+  ["web_control"]	= {
+      [1]	= {
+          ["js"]	= "" ;
+          ["url"]	= "card.sgu.edu.cn" ;
+          ["remove_element"]	= "left-icon, ui-btn-left, right-icon, ui-btn-right, ui-title" ;
+          } ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏高度"]	= "56dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["顶栏标题"]	= "韶院Lite" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      } ;
+  ["web"]	= {
+      ["启动网页"]	= "http://card.sgu.edu.cn:8070/SynCard/Manage/BasicInfo" ;
+      ["启用长按菜单"]	= true ;
+      ["支持打开外部应用"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["网页沉浸"]	= false ;
+      ["启用进度条"]	= true ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      ["程序启动"]	= "--程序启动时会执行的事件\
+\
+function onKeyDown(key,event)\
+  if(key==4)then\
+    if(webView.canGoBack())then\
+      webView.goBack()\
+    else\
+      appinfo=this.getPackageManager().getApplicationInfo(this.getPackageName(),0)\
+      applabel=this.getPackageManager().getApplicationLabel(appinfo)\
+      退出确认=对话框()\
+      .设置标题(\"退出 \")\
+      .设置消息(\"确定退出 \"..applabel..\" 吗？\")\
+      .设置积极按钮(\"确定\",function()退出程序()end)\
+      .设置消极按钮(\"取消\")\
+      .show()\
+    end\
+    return true\
+  end\
+end\
+--返回退出确定\
+" ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=...\
+\
+local wl=activity.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE).getActiveNetworkInfo(); \13\
+if wl== nil then\13\
+加载网页(\"file:///android_asset/index.html\")\
+end\
+--网络Exception\
+" ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  } ;
